@@ -1,21 +1,20 @@
 import Chart from 'chart.js'
+import { h } from 'vue'
 
 export function generateChart (chartId, chartType) {
   return {
-    render: function (createElement) {
-      return createElement(
+    render: function () {
+      return h(
         'div', {
           style: this.styles,
           class: this.cssClasses
         },
         [
-          createElement(
+          h(
             'canvas', {
-              attrs: {
-                id: this.chartId,
-                width: this.width,
-                height: this.height
-              },
+              id: this.chartId,
+              width: this.width,
+              height: this.height,
               ref: 'canvas'
             }
           )
